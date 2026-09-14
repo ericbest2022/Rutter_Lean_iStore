@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: MT7981-ledeVPN
+name: MT7981-VPN-Lede-iStore
 
 permissions: write-all
 #开启写权限，防止无法上传到release
@@ -196,7 +196,7 @@ jobs:
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success' && !cancelled()
       run: |
         VERSION1="${REPO_BRANCH#*-}"
-        echo "release_tag=$(date +"%Y.%m.%d-%H%M_MT7981_Lede-VPN-${VERSION1}")" >> $GITHUB_OUTPUT
+        echo "release_tag=$(date +"%Y.%m.%d-%H%M_MT7981_VPN-Lede-iStore${VERSION1}")" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
         cat > release.txt << EOF
